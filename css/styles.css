@@ -68,8 +68,8 @@ header {
 
 /* Small mascot image */
 .header-logo {
-  height: 28px;               /* Sized to match heading text height */
-  max-height: 28px;
+  height: 100px;               /* Sized to match heading text height */
+  max-height: 100px;
   width: auto;
   object-fit: contain;
   display: inline-block;
@@ -77,7 +77,7 @@ header {
 
 /* Header title */
 .header-brand h1 {
-  font-size: 1.75rem;
+  font-size: 3.75rem;
   color: var(--white);
   margin: 0;
   line-height: 1.2;
