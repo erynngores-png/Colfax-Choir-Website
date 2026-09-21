@@ -1,136 +1,166 @@
+/* ==========================================================================
+   1. CSS VARIABLES & THEME SETUP
+   ========================================================================== */
 :root {
---primary-color: #0d3b66;
---secondary-color: #f4d35e;
---text-color: #1a1a1a;
---bg-color: #f8f9fa;
---card-bg: #ffffff;
---border-color: #d1d5db;
---focus-ring: #005fcc;
-
---font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
---max-width: 1100px;
+  --primary-color: #003366;      /* Deep Navy Blue */
+  --secondary-color: #f1c40f;    /* Warm Gold / Accent */
+  --text-dark: #222222;          /* High contrast text */
+  --bg-light: #f8f9fa;           /* Off-white page background */
+  --white: #ffffff;
+  --focus-ring: #ffbf47;         /* High-contrast focus outline */
+  --max-width: 1100px;
 }
 
-body{
-    font-family: var(--font-main);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    padding: 0;
+/* ==========================================================================
+   2. GLOBAL RESETS & ACCESSIBILITY
+   ========================================================================== */
+* {
+  box-sizing: border-box;
 }
 
-/* Accessibility & Focus Styles*/
-:focus-visible {
-    outline: 3px solid var(--focus-ring);
-    outline-offset: 3px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
 }
 
-.skip-link{
-    position: absolute;
-    top: -100px;
-    left: 1rem;
-    background: var(--primary-color);
-    color: #ffffff;
-    padding: 0.75rem 1rem;
-    z-index: 100;
-    text-decoration: none;
-    border-radius: 0 0 4px 4px;
+/* Accessible Skip Link for Keyboard & Screen Reader Users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--secondary-color);
+  color: #000000;
+  padding: 8px 16px;
+  z-index: 100;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s ease;
 }
 
-.skip-link: focus {
-    top: 0;
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--text-dark);
 }
 
-/*Layout Structure*/
-header{
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 1.5rem 1rem;
-    text-align: center;
+/* ==========================================================================
+   3. HEADER & BRANDING (Mascot + Title)
+   ========================================================================== */
+header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1.25rem 1rem 1rem 1rem;
+  text-align: center;
 }
 
-.header-brand{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 1rem;
+/* Flex container for Mascot + H1 */
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;                  /* Spacing between logo and text */
+  margin-bottom: 0.75rem;
 }
 
+/* Small mascot image */
 .header-logo {
-  height: 60px !important;    /* !important forces this rule to take priority */
+  height: 60px;               /* Sized to match heading text height */
   max-height: 60px;
   width: auto;
+  object-fit: contain;
   display: inline-block;
 }
 
-.header-brand h1{
-    font-size: 1.75rem;
-    margin: 0;
+/* Header title */
+.header-brand h1 {
+  font-size: 1.75rem;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.2;
 }
 
-/*Horizontal nav bar*/
-nav ul{
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+/* ==========================================================================
+   4. NAVIGATION BAR
+   ========================================================================== */
+nav {
+  margin-top: 0.5rem;
 }
 
-nav a{
-    color: #ffffff;
-    text-decoration: underline;
-    font-weight: 600;
-    padding: 0.5rem;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;             /* Mobile wrap handling */
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
 }
 
-nav a:hover, nav a:focus{
-    color: var(--secondary-color);
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;     /* Accessible touch target size */
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/*Main Container Constraint*/
-main{
-    max-width: var(--max-width);
-    margin: 2rem auto;
-    padding: 0 1rem;
+/* Hover state */
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--secondary-color);
+  text-decoration: underline;
 }
 
-section{
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* Active focus-visible state for keyboard users */
+nav a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-section h2{
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.25rem;
+/* Active Page Indicator (via aria-current="page") */
+nav a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid var(--secondary-color);
 }
 
-footer{
-    text-align: center;
-    padding: 2rem 1rem;
-    background-color: var(--background-color);
-    color: #ffffff;
-    margin-top: 3rem;
+/* ==========================================================================
+   5. MAIN CONTENT LAYOUT
+   ========================================================================== */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-/* Responsive Media Queries*/
-@media (min-width: 768px){
-    #ensembles {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    #ensembles h2{
-        grid-column: 1/ -1;
-    }
+/* Basic Section & Hero Card styling */
+section {
+  background-color: var(--white);
+  padding: 1.75rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
 }
