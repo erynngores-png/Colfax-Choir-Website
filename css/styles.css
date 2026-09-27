@@ -68,16 +68,16 @@ header {
 
 /* Small mascot image */
 .header-logo {
-  height: 100px;               /* Sized to match heading text height */
-  max-height: 100px;
+  height: 36px;
+  max-height: 36px;
   width: auto;
   object-fit: contain;
   display: inline-block;
 }
 
-/* Header title */
+/* Header title with fluid sizing */
 .header-brand h1 {
-  font-size: 3.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
   color: var(--white);
   margin: 0;
   line-height: 1.2;
@@ -202,7 +202,31 @@ section {
 }
 
 /* ==========================================================================
-   7. FOOTER
+   7. GOOGLE EMBEDS (CALENDAR, FORMS, GALLERY)
+   ========================================================================== */
+.calendar-container,
+.form-container,
+.gallery-container {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1.5rem;
+  background-color: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-container iframe,
+.form-container iframe,
+.gallery-container iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* ==========================================================================
+   8. FOOTER
    ========================================================================== */
 footer {
   background-color: var(--primary-color);
