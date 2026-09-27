@@ -125,11 +125,6 @@ nav a:focus-visible {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Active Page Indicator (via aria-current="page") */
-nav a[aria-current="page"] {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-bottom: 3px solid var(--secondary-color);
-}
 
 /* ==========================================================================
    5. MAIN CONTENT & HERO
