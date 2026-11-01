@@ -147,17 +147,25 @@ section {
 /* ==========================================================================
    6. HOME PAGE NAVIGATION CARDS & ENSEMBLE GRIDS
    ========================================================================== */
-.page-nav-grid,
-.ensemble-grid {
+.page-nav-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Centers all cards, including the final row */
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.ensemble-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
   margin-top: 1rem;
 }
 
 /* Homepage Navigation Cards */
 .nav-card {
+  flex: 1 1 280px;         /* Allows cards to grow/shrink */
+  max-width: 340px;        /* Keeps the bottom 2 cards from stretching too wide */
   display: block;
   background-color: var(--white);
   border: 2px solid #e2e8f0;
@@ -183,7 +191,7 @@ section {
 
 .nav-card:hover {
   transform: translateY(-3px);
-  border-color: var(--primary-color); /* Changes border color on hover */
+  border-color: var(--primary-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -192,7 +200,7 @@ section {
   outline-offset: 2px;
 }
 
-/* Ensemble Cards (No border color change on hover) */
+/* Ensemble Cards */
 .ensemble-card {
   display: block;
   background-color: var(--white);
@@ -201,7 +209,7 @@ section {
   padding: 1.25rem;
   text-decoration: none;
   color: var(--text-dark);
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Excludes border-color */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ensemble-card h3 {
@@ -219,7 +227,7 @@ section {
 
 .ensemble-card:hover {
   transform: translateY(-3px);
-  border: 2px solid #e2e8f0; /* Locks the border color so it doesn't change */
+  border: 2px solid #e2e8f0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
