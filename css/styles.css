@@ -182,14 +182,6 @@ section {
   color: #4a5568;
 }
 
-/* Hover and Focus interaction for cards */
-.nav-card:hover,
-.ensemble-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
 .nav-card:focus-visible,
 .ensemble-card:focus-visible {
   outline: 3px solid var(--focus-ring);
