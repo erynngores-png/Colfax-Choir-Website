@@ -149,13 +149,14 @@ section {
    ========================================================================== */
 .page-nav-grid,
 .ensemble-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
   margin-top: 1rem;
 }
 
-/* Homepage Navigation Cards (Keep border hover effect) */
+/* Homepage Navigation Cards */
 .nav-card {
   display: block;
   background-color: var(--white);
