@@ -68,8 +68,8 @@ header {
 
 /* Small mascot image */
 .header-logo {
-  height: 36px;
-  max-height: 36px;
+  height: 50px;
+  max-height: 50px;
   width: auto;
   object-fit: contain;
   display: inline-block;
